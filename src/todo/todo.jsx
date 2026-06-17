@@ -14,8 +14,6 @@ export const Todo = () => {
     setTask((prevTask) => [...prevTask, trimmedValue]);
   };
 
-  //todo date time
-
   // todo handleDeleteTodo
   const handleDeleteTodo = (value) => {
     console.log(task);
