@@ -1,7 +1,8 @@
 import "./todo.css";
 import { useEffect, useState } from "react";
-import { MdCheck, MdDeleteForever } from "react-icons/md";
+
 import { TodoForm } from "./todoform";
+import { TodoList } from "./todoList";
 
 export const Todo = () => {
   const [task, setTask] = useState([]);
@@ -51,19 +52,11 @@ export const Todo = () => {
         <ul>
           {task.map((curTask, index) => {
             return (
-              <li key={index} className="todo-item">
-                <span>{curTask}</span>
-
-                <button className="check-btn">
-                  <MdCheck />
-                </button>
-                <button
-                  className="delete-btn"
-                  onClick={() => handleDeleteTodo(curTask)}
-                >
-                  <MdDeleteForever />
-                </button>
-              </li>
+              <TodoList
+                key={index}
+                data={curTask}
+                onHandleDeleteTodo={handleDeleteTodo}
+              />
             );
           })}
         </ul>
