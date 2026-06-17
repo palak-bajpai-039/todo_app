@@ -1,30 +1,16 @@
 import "./todo.css";
 import { useEffect, useState } from "react";
 import { MdCheck, MdDeleteForever } from "react-icons/md";
+import { TodoForm } from "./todoform";
 
 export const Todo = () => {
-  const [inputValue, setInputValue] = useState("");
   const [task, setTask] = useState([]);
   const [dateTime, setDateTime] = useState("");
-
-  const handleInputChange = (value) => {
-    setInputValue(value);
-  };
-
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-
+  const handleFormSubmit = (inputValue) => {
     const trimmedValue = inputValue.trim();
-
     if (!trimmedValue) return;
-
-    if (task.includes(trimmedValue)) {
-      setInputValue("");
-      return;
-    }
-
+    if (task.includes(trimmedValue)) return;
     setTask((prevTask) => [...prevTask, trimmedValue]);
-    setInputValue("");
   };
 
   //todo date and time
@@ -59,25 +45,7 @@ export const Todo = () => {
         <h2 className="date-time">{dateTime}</h2>
       </header>
 
-      <section className="form">
-        <form onSubmit={handleFormSubmit}>
-          <div>
-            <input
-              type="text"
-              className="todo-input"
-              autoComplete="off"
-              value={inputValue}
-              onChange={(event) => handleInputChange(event.target.value)}
-              placeholder="Add Task"
-            />
-          </div>
-          <div>
-            <button type="submit" className="todo-btno">
-              Add Task
-            </button>
-          </div>
-        </form>
-      </section>
+      <TodoForm onAddTodo={handleFormSubmit} />
 
       <section className="myUnOrdList">
         <ul>
