@@ -2,10 +2,11 @@ import "./todo.css";
 import { useEffect, useState } from "react";
 import { TodoForm } from "./todoform";
 import { TodoList } from "./todoList";
+import { DateTime } from "./todoDate-Time";
 
 export const Todo = () => {
   const [task, setTask] = useState([]);
-  const [dateTime, setDateTime] = useState("");
+
   const handleFormSubmit = (inputValue) => {
     const trimmedValue = inputValue.trim();
     if (!trimmedValue) return;
@@ -13,18 +14,7 @@ export const Todo = () => {
     setTask((prevTask) => [...prevTask, trimmedValue]);
   };
 
-  //todo date and time
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const now = new Date();
-      const formatttedDate = now.toLocaleDateString();
-      const formattedTime = now.toLocaleTimeString();
-
-      setDateTime(`${formatttedDate} - ${formattedTime}`);
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
+  //todo date time
 
   // todo handleDeleteTodo
   const handleDeleteTodo = (value) => {
@@ -42,7 +32,7 @@ export const Todo = () => {
     <section className="todo-container">
       <header>
         <h1>Todo List</h1>
-        <h2 className="date-time">{dateTime}</h2>
+        <DateTime />
       </header>
 
       <TodoForm onAddTodo={handleFormSubmit} />
