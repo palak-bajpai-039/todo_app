@@ -8,10 +8,15 @@ export const Todo = () => {
   const [task, setTask] = useState([]);
 
   const handleFormSubmit = (inputValue) => {
-    const trimmedValue = inputValue.trim();
-    if (!trimmedValue) return;
-    if (task.includes(trimmedValue)) return;
-    setTask((prevTask) => [...prevTask, trimmedValue]);
+    const { id, content, checked } = inputValue;
+
+    //? to check if the input field is empty or not
+    if (!content) return;
+
+    //? to check if the data is already existing or not
+    if (task.includes(inputValue)) return;
+
+    setTask((prevTask) => [...prevTask, inputValue]);
   };
 
   // todo handleDeleteTodo
