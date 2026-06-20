@@ -14,9 +14,13 @@ export const Todo = () => {
     if (!content) return;
 
     //? to check if the data is already existing or not
-    if (task.includes(inputValue)) return;
+    //if (task.includes(inputValue)) return;
+    const ifTodoContentMatched = task.find(
+      (curTask) => curTask.content === content,
+    );
+    if (ifTodoContentMatched) return;
 
-    setTask((prevTask) => [...prevTask, inputValue]);
+    setTask((prevTask) => [...prevTask, { id, content, checked }]);
   };
 
   // todo handleDeleteTodo
@@ -42,11 +46,11 @@ export const Todo = () => {
 
       <section className="myUnOrdList">
         <ul>
-          {task.map((curTask, index) => {
+          {task.map((curTask) => {
             return (
               <TodoList
-                key={index}
-                data={curTask}
+                key={curTask.id}
+                data={curTask.content}
                 onHandleDeleteTodo={handleDeleteTodo}
               />
             );

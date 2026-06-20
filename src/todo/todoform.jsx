@@ -10,7 +10,7 @@ export const TodoForm = ({ onAddTodo }) => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     onAddTodo(inputValue);
-    setInputValue("");
+    setInputValue({ id: "", content: "", checked: false });
   };
 
   return (
