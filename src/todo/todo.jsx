@@ -25,15 +25,15 @@ export const Todo = () => {
 
   // todo handleDeleteTodo
   const handleDeleteTodo = (value) => {
-    console.log(task);
-    console.log(value);
-    const updatedTask = task.filter((curTask) => curTask !== value);
+    const updatedTask = task.filter((curTask) => curTask.content !== value);
     setTask(updatedTask);
   };
   // todo handleClearTodoData functionality
   const handleClearTodoData = () => {
     setTask([]);
   };
+  // todo handleCheckedTodo functionality
+  const handleCheckedTodo = () => {};
 
   return (
     <section className="todo-container">
@@ -51,7 +51,9 @@ export const Todo = () => {
               <TodoList
                 key={curTask.id}
                 data={curTask.content}
+                checked={curTask.checked}
                 onHandleDeleteTodo={handleDeleteTodo}
+                onHandleDeleteTodo={handleCheckedTodo}
               />
             );
           })}
