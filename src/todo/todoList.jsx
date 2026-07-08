@@ -1,5 +1,5 @@
 import { MdCheck, MdDeleteForever } from "react-icons/md";
-// todolist functionality s
+// todolist functionality
 export const TodoList = ({
   data,
   checked,
