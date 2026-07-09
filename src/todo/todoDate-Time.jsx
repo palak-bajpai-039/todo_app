@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useState } from "react";
-//? date time functionality
 export const DateTime = () => {
   const [dateTime, setDateTime] = useState("");
   useEffect(() => {
