@@ -6,12 +6,14 @@ import { DateTime } from "./todoDate-Time";
 
 const todokey = "reactTodo";
 
+const getlocalStorageData = () => {
+  const rawTodos = localStorage.getItem(todokey);
+  if (!rawTodos) return [];
+  return JSON.parse(rawTodos);
+};
+
 export const Todo = () => {
-  const [task, setTask] = useState(() => {
-    const rawTodos = localStorage.getItem(todokey);
-    if (!rawTodos) return [];
-    return JSON.parse(rawTodos);
-  });
+  const [task, setTask] = useState(getlocalStorageData);
 
   const handleFormSubmit = (inputValue) => {
     const { id, content, checked } = inputValue;
