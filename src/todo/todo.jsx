@@ -23,7 +23,7 @@ export const Todo = () => {
     setTask((prevTask) => [...prevTask, { id, content, checked }]);
   };
 
-  // todo handleDeleteTodo
+  // todo handleDeleteTodo function
   const handleDeleteTodo = (value) => {
     const updatedTask = task.filter((curTask) => curTask.content !== value);
     setTask(updatedTask);
