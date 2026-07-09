@@ -9,6 +9,8 @@ const todokey = "reactTodo";
 export const Todo = () => {
   const [task, setTask] = useState(() => {
     const rawTodos = localStorage.getItem(todokey);
+    if (!rawTodos) return [];
+    return JSON.parse(rawTodos);
   });
 
   const handleFormSubmit = (inputValue) => {
