@@ -13,7 +13,7 @@ const getlocalStorageData = () => {
 };
 
 export const Todo = () => {
-  const [task, setTask] = useState(getlocalStorageData);
+  const [task, setTask] = useState(() => getlocalStorageData());
 
   const handleFormSubmit = (inputValue) => {
     const { id, content, checked } = inputValue;
