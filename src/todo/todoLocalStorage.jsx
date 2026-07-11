@@ -4,6 +4,7 @@ export const getlocalStorageData = () => {
   return JSON.parse(rawTodos);
 };
 
+// local stroage functionality
 export const setlocalStorageData = () => {
   const rawTodos = localStorage.getItem(todokey);
   if (!rawTodos) return [];
