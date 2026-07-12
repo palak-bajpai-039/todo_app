@@ -3,7 +3,7 @@ export const getlocalStorageData = () => {
   if (!rawTodos) return [];
   return JSON.parse(rawTodos);
 };
-// local storage functionality
+// todo local storage functionality
 export const setlocalStorageData = (todos) => {
   localStorage.setItem(todokey, JSON.stringify(todos));
 };

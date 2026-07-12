@@ -2,11 +2,11 @@ import { useState } from "react";
 // todoFrom functionality
 export const TodoForm = ({ onAddTodo }) => {
   const [inputValue, setInputValue] = useState({});
-
+  // handle input change functionality
   const handleInputChange = (value) => {
     setInputValue({ id: value, content: value, checked: false });
   };
-
+  // handle form submit functionality
   const handleFormSubmit = (event) => {
     event.preventDefault();
     onAddTodo(inputValue);
