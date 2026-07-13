@@ -3,8 +3,7 @@ import { useState } from "react";
 import { TodoForm } from "./todoform";
 import { TodoList } from "./todoList";
 import { DateTime } from "./todoDate-Time";
-
-const todokey = "reactTodo";
+import { getlocalStorageData, setlocalStorageData } from "./todoLocalStorage";
 
 export const Todo = () => {
   const [task, setTask] = useState(() => getlocalStorageData());
@@ -26,7 +25,7 @@ export const Todo = () => {
   };
 
   //  todo add data to localstorage
-  localStorage.setItem(todokey, JSON.stringify(task));
+  setlocalStorageData(task);
 
   // todo handleDeleteTodo function
   const handleDeleteTodo = (value) => {
