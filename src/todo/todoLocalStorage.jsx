@@ -4,6 +4,6 @@ export const getlocalStorageData = () => {
   return JSON.parse(rawTodos);
 };
 // todo local storage functionality
-export const setlocalStorageData = (todos) => {
-  localStorage.setItem(todokey, JSON.stringify(todos));
+export const setlocalStorageData = () => {
+  return localStorage.setItem(todokey, JSON.stringify(task));
 };
