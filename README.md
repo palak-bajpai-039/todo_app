@@ -17,5 +17,11 @@ If you are developing a production application, we recommend using TypeScript wi
 
 ## short circuit evalution in react js
 
+for logical or operator
 const result = false || 'Hello' ; // 'Hello'
 const result2 = true || 'World'; // true
+
+## logical and operator
+
+const result = false && 'Hello' ; // 'Hello'
+const result2 = true && 'World'; // true
