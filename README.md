@@ -23,5 +23,11 @@ const result2 = true || 'World'; // true
 
 ## logical and operator
 
-const result = false && 'Hello' ; // 'Hello'
-const result2 = true && 'World'; // true
+const result = true && 'Hello' ; // 'Hello'
+const result2 = false && 'World'; // false
+
+## nullish coalescing
+
+const result = null ?? 'Hello' // 'Hello'
+const result2 = undefined ?? 'World' ; // 'World'
+const result3 = " ?? 'Fallback'; //"
